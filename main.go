@@ -1,22 +1,23 @@
 package main
+
 import (
-	"fmt"
 	"errors"
+	"fmt"
 	"math"
 )
 
 // A struct is a collection of fields so that I can group things together to create a more logical type
 // use the word type and the name and struct word, each field has to have a name and a type
 type person struct {
-	name string
-	age int
+	name       string
+	age        int
 	birthplace string
 }
 
 func main() {
 	fmt.Println("Hello Franklin...")
 	var x int = 5 // declaring variable of integer type
-	y := 20 // := shorthand, neater to read, and go infers it's type.
+	y := 20       // := shorthand, neater to read, and go infers it's type.
 	sum := x + y
 	fmt.Println(sum)
 
@@ -27,7 +28,7 @@ func main() {
 	}
 
 	var array [5]int // Declaring an array with 5 ints defaulted to 0
-	array[2] = 4 // assignment of index 2 of the array to 4
+	array[2] = 4     // assignment of index 2 of the array to 4
 	fmt.Println("First array: ", array)
 	fmt.Println("1st array index 2: ", array[2])
 
@@ -74,7 +75,7 @@ func main() {
 	// Another thing that can be done within a loop is iterate over each element within in an array or slice by using range
 	arrayFive := []string{"a", "b", "c", "d"}
 
-	for index, value := range arrayFive{
+	for index, value := range arrayFive {
 		fmt.Println("index: ", index, "value: ", value)
 	}
 
@@ -84,7 +85,7 @@ func main() {
 	mapTwo["b"] = "beta"
 	mapTwo["o"] = "omega"
 
-	for key, value := range mapTwo{ // However will get key instead of index
+	for key, value := range mapTwo { // However will get key instead of index
 		fmt.Println("key: ", key, "value: ", value)
 	}
 
@@ -114,6 +115,7 @@ func main() {
 	fmt.Println("pointerVariable: ", pointerVariable)
 	// I can get the memory address by using the amperstand giving us a pointer to the variable
 	fmt.Println("&pointerVariable: ", &pointerVariable)
+
 }
 
 // So far everything is in the main function, but I can easily create a new function
@@ -125,7 +127,7 @@ func getsum(x int, y int) int {
 }
 
 // in Go I can have multiple return values
-func sqroot(x float64)(float64, error) {
+func sqroot(x float64) (float64, error) {
 	// All built in types and since the square root of negative numbers are complex numbers
 	// I can limit this function to positive integers only if x is less than 0
 	// use errors package from errors import
@@ -136,6 +138,6 @@ func sqroot(x float64)(float64, error) {
 	return math.Sqrt(x), nil
 }
 
-func incrementVar(x *int){ // Astric accepts the pointer prefixing type
+func incrementVar(x *int) { // Astric accepts the pointer prefixing type
 	*x++ // To modify the variable directly not the memory which would be x without Astrics
 }
